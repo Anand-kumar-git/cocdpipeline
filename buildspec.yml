@@ -7,10 +7,9 @@ phases:
     commands:
       - echo "Installing dependencies"
       - npm install
-
   build:
     commands:
-      - echo "Build phases started"
+      - echo "Build phase started"
       - npm run start
 
 artifacts:
