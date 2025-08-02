@@ -3,15 +3,20 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 16
+      nodejs: 18  # Change this based on your runtime (e.g., python: 3.11)
     commands:
-      - echo "Installing dependencies"
+      - echo "Installing dependencies..."
       - npm install
   build:
     commands:
-      - echo "Build phase started"
-      - npm run start
+      - echo "Building the application..."
+      - npm run build  # Replace with your actual build command
+  post_build:
+    commands:
+      - echo "Build completed. Preparing for deployment..."
+      - zip -r app.zip .   # Compress all files into one for deployment
+      - ls -al
 
 artifacts:
   files:
-    - "**/*"
+    - app.zip
